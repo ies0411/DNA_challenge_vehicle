@@ -29,6 +29,7 @@ docker run --ipc=host --shm-size=8gb --pid=host \
         ${DOCKER_ARGS} \
         -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
         -v ${HOME}:${HOME} \
+        -v /mnt:/mnt \
         ${GPUS_ARGS} \
         --name ${IMAGE_NAME_}.${PORT} \
         ${IMAGE_NAME} ${COMMAND}

@@ -147,7 +147,6 @@ class CustomDataset(DatasetTemplate):
             logger=self.logger,
         )
         self.split = split
-
         split_dir = self.root_path / "ImageSets" / (self.split + ".txt")
         self.sample_id_list = (
             [x.strip() for x in open(split_dir).readlines()]
@@ -155,7 +154,6 @@ class CustomDataset(DatasetTemplate):
             else None
         )
         self.sample_id_list = [sample_id for sample_id in self.sample_id_list if sample_id.strip()]
-
 
     def __len__(self):
         if self._merge_all_iters_to_one_epoch:
@@ -542,8 +540,6 @@ if __name__ == "__main__":
 
         dataset_cfg = EasyDict(yaml.safe_load(open(sys.argv[2])))
         data_path = sys.argv[3]
-        # ROOT_DIR = (Path(__file__).resolve().parent / "../../../").resolve()
-        # "/mnt/nas3/Data/dna_autonomous/vehicle_ego/custom"
         DATA_PATH = Path(data_path).resolve()
         create_custom_infos(
             dataset_cfg=dataset_cfg,
@@ -551,8 +547,3 @@ if __name__ == "__main__":
             data_path=DATA_PATH,
             save_path=DATA_PATH,
         )
-
-# python -m pcdet.datasets.custom.custom_dataset create_custom_infos tools/cfgs/dataset_configs/custom_dataset.yaml /mnt/nas-1/eslim/Data/dna/vehicle/custom
-# python -m pcdet.datasets.custom.custom_dataset create_custom_infos tools/cfgs/dataset_configs/custom_dataset.yaml /mnt/nas3/Data/dna_autonomous/edge_ego/custom
-
-

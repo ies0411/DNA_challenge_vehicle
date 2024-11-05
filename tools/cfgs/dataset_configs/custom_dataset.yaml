@@ -1,9 +1,7 @@
 DATASET: 'CustomDataset'
-# DATA_PATH: '../data/custom'
-# DATA_PATH: "/mnt/nas3/Data/dna_autonomous/dna_autonomous/vehicle_ego/custom"
-DATA_PATH: "/mnt/nas-1/eslim/Data/dna/vehicle/custom"
+DATA_PATH: "../datasets"
 
-POINT_CLOUD_RANGE: [-75.2, -75.2, -4, 75.2, 75.2, 4]
+POINT_CLOUD_RANGE: [-75.2, -75.2, -2, 75.2, 75.2, 4]
 
 MAP_CLASS_TO_KITTI: {
     'Vehicle': 'Car',
