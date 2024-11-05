@@ -354,11 +354,9 @@ class CustomDataset(DatasetTemplate):
         num_features=4,
     ):
         import concurrent.futures as futures
-        # emtpy_label_list = []
         def process_single_scene(sample_idx):
-            # 10009518
-            # sample_idx = 10009519
-            # print("%s sample_idx: %s" % (self.split, sample_idx))
+
+            print("%s sample_idx: %s" % (self.split, sample_idx))
             info = {}
             pc_info = {"num_features": num_features, "lidar_idx": sample_idx}
             info["point_cloud"] = pc_info
@@ -366,16 +364,9 @@ class CustomDataset(DatasetTemplate):
             if has_label:
                 annotations = {}
                 gt_boxes_lidar, name = self.get_label(sample_idx)
-                # print(f'sample_idx : {sample_idx}')
-                # print(f'gt_boxes_lidar : {gt_boxes_lidar}')
+
                 annotations["name"] = name
-                try:
-                    annotations["gt_boxes_lidar"] = gt_boxes_lidar[:, :7]
-                except Exception as e:
-                    print(f'empty num : {sample_idx}')
-                    # emtpy_label_list.append(sample_idx)
-                #     raise e
-                # end try
+                annotations["gt_boxes_lidar"] = gt_boxes_lidar[:, :7]
 
                 num_pts_in_gt = (
                     roiaware_pool3d_utils.points_in_boxes_cpu(
@@ -393,7 +384,6 @@ class CustomDataset(DatasetTemplate):
                 info["annos"] = annotations
 
             return info
-        # print(f'emtpy_label_list : {emtpy_label_list}')
         sample_id_list = (
             sample_id_list if sample_id_list is not None else self.sample_id_list
         )
