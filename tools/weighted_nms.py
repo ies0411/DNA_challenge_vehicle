@@ -141,11 +141,8 @@ def main():
         }
         print(f'frame_id  : {pred_result_1["frame_id"]}')
         results.append(frame_result)
-
-        save_filename = "../final_results/result.pkl"
-
-
-        with open(save_filename, 'wb') as f:
-            pickle.dump(results, f)
+    save_filename = "../final_results/result.pkl"
+    with open(save_filename, 'wb') as f:
+        pickle.dump(results, f)
 if __name__ == "__main__":
     main()

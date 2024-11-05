@@ -132,6 +132,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-# python test.py --cfg_file ./cfgs/custom_models/dsvt_deep.yaml --ckpt /mnt/nas-1/eslim/workspace/dna_vehicle/dsvt_deep_4/ckpt/checkpoint_epoch_24.pth --work_dir /mnt/nas-1/eslim/workspace/dna_v
-# ehicle/results/dsvt_deep_4/ --data_path ../datasets/custom/
